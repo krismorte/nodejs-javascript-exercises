@@ -207,8 +207,6 @@ exports.book_delete_post = function(req, res) {
             })
         }
     });
-    
-
 
 };
 
