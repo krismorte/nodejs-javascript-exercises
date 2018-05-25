@@ -2,25 +2,19 @@ package com.locallibrary.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "genres")
 public class Genre {
 
 	@Id
-	private ObjectId _id;
+	private String _id;
 	private String name;
+	@Transient
+	private String url;
 	
 	public Genre() {
-		_id=new ObjectId();
-	}
-
-	public ObjectId get_id() {
-		return _id;
-	}
-
-	public void set_id(ObjectId _id) {
-		this._id = _id;
 	}
 
 	public String getName() {
@@ -31,5 +25,17 @@ public class Genre {
 		this.name = name;
 	}
 		
+	public String getUrl() {
+		return "/catalog/genre/" + this._id.toString();
+	}
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+	
 	
 }

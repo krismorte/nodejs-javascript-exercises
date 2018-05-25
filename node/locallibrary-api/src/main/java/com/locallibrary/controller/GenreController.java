@@ -42,6 +42,7 @@ public class GenreController {
 		if (service.getGenreByName(genre.getName()).isPresent()) {
 			throw new ExistingObjectException();
 		}
+		System.out.println("Aqui");
 		service.addGenre(genre);
 	}
 	
